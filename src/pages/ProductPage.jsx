@@ -18,7 +18,6 @@ export default function ProductPage() {
 
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
-    console.log(event.target.value);
   };
 
   const categories = products.map(product => product.category)

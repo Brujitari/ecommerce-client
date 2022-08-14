@@ -29,8 +29,8 @@ const Container = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} >
-            <Route path="product-page" element={<ProductPage />} />
-            <Route path='home-page' element={<HomePage />} />
+            <Route path="products" element={<ProductPage />} />
+            <Route path='homepage' element={<HomePage />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

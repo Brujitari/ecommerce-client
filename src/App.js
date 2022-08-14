@@ -11,7 +11,6 @@ import Cart from "components/cart/Cart";
 function App() {
 
   const { setProducts, products } = useGetter();
-  console.log(products)
 
   useEffect(() => {
     setProducts();

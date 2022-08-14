@@ -5,37 +5,36 @@ import { useForm } from "react-hook-form";
 import { useLogin, useRegister } from "hooks";
 import { useGetter } from "store";
 
-
+import Button from "components/button";
 
 function AuthPage() {
     const { user, setUser } = useGetter();
     const navigate = useNavigate();
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState: { errors }  } = useForm();
     const signUp = useRegister({ onSuccess: () => navigate("/login") });
 
+    const handleClick = () => navigate("/login");
     const onSubmit = (data) => signUp(data);
 
     useEffect(() => {
         setUser();
     }, []);
 
-
-
     return (
         <div className="authpage-container">
             <form className="authpage-container_form" onSubmit={handleSubmit(onSubmit)}>
                 <h1>E-Commerce</h1>
                 <label htmlFor="">Email</label>
-                <input placeholder="lucho@gmail.com"  {...register("email")} />
+                <input placeholder="Email"  {...register("email", { required: true })} required/>
 
                 <label htmlFor="">Password</label>
-                <input placeholder="Password"  {...register("password")} />
+                <input placeholder="Password" type="Password" {...register("password", { required: true })} required/>
 
                 <label htmlFor="">FirstName</label>
-                <input placeholder="FirstName"  {...register("first_name")} />
+                <input placeholder="FirstName"  {...register("first_name", { required: true })} required/>
 
                 <label htmlFor="">Address</label>
-                <input placeholder="Address"  {...register("address")} />
+                <input placeholder="Address"  {...register("address", { required: true })} required/>
 
                 <select {...register("role")}>
                     <option value="client">Client</option>
@@ -43,7 +42,20 @@ function AuthPage() {
                     <option value="vendor">Vendor</option>
                 </select>
 
+                {errors.name && errors.name.type === "required" && (
+          <span role="alert">This field is required</span>
+        )}
+
                 <input type="submit" className="form_button" />
+
+                <section className="buttons">
+                    <p className="buttons__text">
+                    Already have an account?{" "}
+                    <span className="buttons__link" onClick={handleClick}>
+                    Log in here
+                    </span>
+                    </p>
+                </section>
             </form>
         </div>
     )
