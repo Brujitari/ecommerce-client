@@ -9,6 +9,7 @@ import { useGetter } from 'store';
 export default function ProductPage() {
   const [filterProduct, setFilterProduct] = useState('');
   const {products} = useGetter();
+  const {categories} = useGetter();
 
   const [category, setCategory] = useState('');
 
@@ -19,10 +20,6 @@ export default function ProductPage() {
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
   };
-
-  const categories = products.map(product => product.category)
-  const filtered = [... new Set(categories)];
-
 
   return (
     <Box>
@@ -38,10 +35,13 @@ export default function ProductPage() {
           select
           onChange={handleCategoryChange}
         >
-          {filtered
-            .map((element, index) => (
-              <MenuItem key={index} product={index} value={element}>
-                {element}
+          <MenuItem value={'all categories'}>
+                {'all categories'}
+              </MenuItem>
+          {categories
+            .map((categoryName, index) => (
+              <MenuItem key={index} product={index} value={categoryName}>
+                {categoryName}
               </MenuItem>
             ))}
         </TextField>
@@ -53,7 +53,7 @@ export default function ProductPage() {
             {
               products
                 .filter((product) => product.name.toLowerCase().includes(filterProduct.toLowerCase()) )
-                .filter((product) => product.category.includes(category))
+                .filter((product) => category && category !== 'all categories'? product.category === category : product)
                 .map(products => (
                   <Grid item key={products.ref} xs={12} sm={6} md={4} lg={4} sx={{justifyContent:'center'}}>
                     <ImgMediaCard product={products} />

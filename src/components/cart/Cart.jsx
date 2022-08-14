@@ -4,13 +4,13 @@ import "./cart.scss";
 export default function Cart() {
   const { isCartOpen, setCartOpen, cart, createOrder } = useGetter();
 
-  const quantities = cart.reduce(function (prev, cur) {
+  const quantities = cart?.reduce(function (prev, cur) {
     prev[cur.name] = (prev[cur.name] || 0) + 1;
     return prev;
   }, {});
 
   function getUniqueListBy(arr, key) {
-    return [...new Map(arr.map((item) => [item[key], item])).values()];
+    return [...new Map(arr?.map((item) => [item[key], item])).values()];
   }
 
   return (

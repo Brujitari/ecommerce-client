@@ -59,3 +59,14 @@ export const useCreateOrder = () => {
 
   return addToCart;
 };
+
+export const useCategories = () => {
+  const [categories, setCategories] = useState([]);
+
+  const getAllCategories = async () => {
+    const result = await services.category.getAll();
+    result && setCategories(result.data)
+  };
+
+  return [categories, getAllCategories];
+};
