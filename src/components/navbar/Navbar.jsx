@@ -10,10 +10,10 @@ const Navbar = () => {
         <h4 className="title">Ecommerce</h4>
       </div>
       <div className="menu">
-        <Link to="/">Home</Link>
-        <Link to="/product-page"> Product </Link>
+        <Link to="/homepage">Home</Link>
+        <Link to="/products"> Product </Link>
         <p onClick={() => setCartOpen(true)}>Cart</p>
-        <p>Login</p>
+        <Link to="/login"> Login </Link>
       </div>
     </nav>
   );
