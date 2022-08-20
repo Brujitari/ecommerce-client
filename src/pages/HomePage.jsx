@@ -8,9 +8,7 @@ export default function HomePage() {
   const {products} = useGetter();
 
   function menorPrice () {
-    const priceSort = products.sort((a,b)=>{
-      return a.price - b.price
-    })
+    const priceSort = products.sort((a,b)=> a.price - b.price)
     return (
       priceSort.map(product => product.rate < 5 ? (
           <Grid key={product.ref} item xs={12} sm={6} md={4} lg={3}>
@@ -23,8 +21,8 @@ export default function HomePage() {
     <Box>
       {/* Titular */}
       <Typography variant='h2' sx={{
-        cursor: 'pointer', textAlign: 'center', border: '2px solid #EBE5FC',
-        backgroundColor: '#EBE5FC', height: 237, display: 'flex', justifyContent: 'center', alignItems: 'center',
+        textAlign: 'center', border: '2px solid #EBE5FC',
+        backgroundColor: '#EBE5FC', height: 150, display: 'flex', justifyContent: 'center', alignItems: 'center',
       }}>
         Your e-commerce
       </Typography>

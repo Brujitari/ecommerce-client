@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import HomePage from './pages/HomePage';
+
 import { useUser, useProduct, useCreateOrder, useCategories } from 'hooks';
-import ProductPage from "./pages/ProductPage";
-import App from "./App";
 import Context, { useGetter } from "store";
-import Login from "./pages/authPage/Login";
+
+import App from "./App";
 import Register from "./pages/authPage/Register";
+import Login from "./pages/authPage/Login";
+import HomePage from './pages/HomePage';
+import ProductPage from "./pages/ProductPage";
 
 const Guard = ({ component: Component }) => {
   const { user } = useGetter();

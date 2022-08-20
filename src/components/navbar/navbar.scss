@@ -16,11 +16,15 @@ nav {
     img{
         height: 50px;
     }
-    .menu {
+    .links {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        p{
+        a{
+            padding: 0px 10px;
+            
+        }
+        img{
             padding: 10px;
             cursor: pointer;
         }

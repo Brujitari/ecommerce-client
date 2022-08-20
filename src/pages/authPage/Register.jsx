@@ -1,14 +1,13 @@
 import "./authpage.scss";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form";
-import { useLogin, useRegister } from "hooks";
+import { useRegister } from "hooks";
 import { useGetter } from "store";
 
-import Button from "components/button";
 
 function AuthPage() {
-    const { user, setUser } = useGetter();
+    const { setUser } = useGetter();
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }  } = useForm();
     const signUp = useRegister({ onSuccess: () => navigate("/login") });

@@ -1,9 +1,10 @@
-import Navbar from "./components/navbar/Navbar";
 import { Outlet } from "react-router-dom"
 import { useGetter } from "store";
 import { useEffect } from "react";
 
+import Navbar from "./components/navbar/Navbar";
 import Cart from "components/cart/Cart";
+import Footer from "components/footer/Footer";
 
 function App() {
 
@@ -16,10 +17,15 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Navbar />
-      <Cart />
-      <Outlet />
+    <div>
+      <div className="App">
+        <Navbar />
+        <Cart />
+        <Outlet />
+      </div>
+      <div>
+      <Footer />
+      </div>
     </div>
   );
 }
