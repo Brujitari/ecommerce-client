@@ -13,7 +13,7 @@ function UserMenu() {
     return (
         <div className='userMenu'>
             {user ? (<div className="dropdown">
-                <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {user.first_name}
                 </button>
                 <ul className="dropdown-menu">

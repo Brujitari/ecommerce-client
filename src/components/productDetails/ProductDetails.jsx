@@ -1,10 +1,12 @@
 import "./productdetails.scss"
-import itemImage from "../../assets/img/Rectangle 37.png";
 import { useForm } from "react-hook-form";
+import { useNavigate, useParams } from "react-router-dom";
 
+const itemImage = "https://www.notebookcheck.org/fileadmin/Notebooks/News/_nc3/photo_1517336714731_489689fd1ca8_9.jpeg";
 
 
 export const ProductDetails = () => {
+  const { product } = useParams();
   const { register, handleSubmit } = useForm();
   const rating = 5;
 
@@ -28,7 +30,7 @@ export const ProductDetails = () => {
             {Array(rating)
               .fill()
               .map((_, i)=>(
-                <p>&#11088;</p>
+                <p key={i}>&#11088;</p>
               ))}
             </div>
 

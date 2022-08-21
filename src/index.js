@@ -10,6 +10,7 @@ import Register from "./pages/authPage/Register";
 import Login from "./pages/authPage/Login";
 import HomePage from './pages/HomePage';
 import ProductPage from "./pages/ProductPage";
+import { ProductDetails } from "components/productDetails/ProductDetails";
 
 const Guard = ({ component: Component }) => {
   const { user } = useGetter();
@@ -35,6 +36,7 @@ const Container = () => {
           <Route path="/" element={<App />} >
             <Route path="products" element={<ProductPage />} />
             <Route path='homepage' element={<HomePage />} />
+            <Route path=':product' element={<ProductDetails />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

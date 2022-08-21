@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -7,6 +8,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import accounting from "accounting";
 import { Box } from "@mui/material";
+
+import { spacesToUnderscore } from "utils/commons"
 
 import { useGetter } from "store";
 function truncateString(str, num = 200) {
@@ -23,8 +26,14 @@ export default function ImgMediaCard({
   const [isHover, setHover] = React.useState(false);
   const elevation = isHover ? 24 : 0;
   const {cart, setCart } = useGetter();
+  const navigate = useNavigate();
+
+  const params = spacesToUnderscore(ref);
+  console.log(params)
+  const handleClick = () => navigate(`/${params}`);
+
   return (
-    <Card
+    <Card onClick={handleClick}
       elevation={elevation}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}

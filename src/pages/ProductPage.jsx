@@ -7,11 +7,14 @@ import { useGetter } from 'store';
 
 
 export default function ProductPage() {
+
   const [filterProduct, setFilterProduct] = useState('');
-  const {products} = useGetter();
-  const {categories} = useGetter();
+  const { products } = useGetter();
+  const { categories } = useGetter();
 
   const [category, setCategory] = useState('');
+
+
 
   const handleProductChange = (event) => {
     setFilterProduct(event.target.value);
@@ -36,8 +39,8 @@ export default function ProductPage() {
           onChange={handleCategoryChange}
         >
           <MenuItem value={'all categories'}>
-                {'all categories'}
-              </MenuItem>
+            {'all categories'}
+          </MenuItem>
           {categories
             .map((categoryName, index) => (
               <MenuItem key={index} product={index} value={categoryName}>
@@ -48,20 +51,21 @@ export default function ProductPage() {
 
       </Box>
       <Box >
-        <Box sx={{ flexGrow: 1, marginTop: 5, display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
-          <Grid container spacing={2} padding={3} justifyContent='center' >
-            {
-              products
-                .filter((product) => product.name.toLowerCase().includes(filterProduct.toLowerCase()) )
-                .filter((product) => category && category !== 'all categories'? product.category === category : product)
-                .map(products => (
-                  <Grid item key={products.ref} xs={12} sm={6} md={4} lg={4} sx={{justifyContent:'center'}}>
-                    <ImgMediaCard product={products} />
-                  </Grid>
-                ))
-            }
-          </Grid>
-        </Box>
+
+          <Box sx={{ flexGrow: 1, marginTop: 5, display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
+            <Grid container spacing={2} padding={3} justifyContent='center' >
+              {
+                products
+                  .filter((product) => product.name.toLowerCase().includes(filterProduct.toLowerCase()))
+                  .filter((product) => category && category !== 'all categories' ? product.category === category : product)
+                  .map(product => (
+                    <Grid item key={product.ref} xs={12} sm={6} md={4} lg={4} sx={{ justifyContent: 'center' }}>
+                      <ImgMediaCard product={product} />
+                    </Grid>
+                  ))
+              }
+            </Grid>
+          </Box>
       </Box>
     </Box>
   );
