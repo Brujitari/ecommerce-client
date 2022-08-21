@@ -17,7 +17,7 @@ function AuthPage() {
 
   useEffect(() => {
     setUser();
-  }, []);
+  }, [user]);
 
 
 

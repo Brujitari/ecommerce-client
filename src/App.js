@@ -10,22 +10,20 @@ function App() {
 
   const { setProducts } = useGetter();
   const { setCategories } = useGetter();
+  const { setUser } = useGetter();
 
   useEffect(() => {
     setProducts();
     setCategories();
+    setUser();
   }, []);
 
   return (
-    <div>
-      <div className="App">
-        <Navbar />
-        <Cart />
-        <Outlet />
-      </div>
-      <div>
+    <div className="App">
+      <Navbar />
+      <Cart />
+      <Outlet />
       <Footer />
-      </div>
     </div>
   );
 }

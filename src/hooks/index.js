@@ -5,7 +5,7 @@ import services from "services";
 
 export const useUser = () => {
   const [user, setUser] = useState(null);
-
+  
   const getUser = async () => {
     const result = await services.user.getInfo();
     result.success && setUser(result.data);
@@ -26,22 +26,31 @@ export const useRegister = ({ onSuccess }) => {
 
 export const useLogin = ({ onSuccess }) => {
   const { user, setUser } = useGetter();
-
+  
   const login = async (data) => {
     const result = await services.auth.login(data);
     result.success && setUser()
   }
-
+  
   useEffect(() => {
     user && onSuccess();
   }, [user]);
-
+  
   return login;
 }
 
+export const useLogout = ({ onSuccess }) => {
+  const logout = async () => {
+    const result = await services.auth.logout();
+    result.success && onSuccess();
+    console.log('result: ', result)
+  };
+  return logout;
+};
+
 export const useProduct = () => {
   const [products, setProducts] = useState([]);
-
+  
   const getAll = async () => {
     const result = await services.product.getAll();
     result && setProducts(result.data);
