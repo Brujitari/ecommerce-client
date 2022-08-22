@@ -6,12 +6,11 @@ const itemImage = "https://www.notebookcheck.org/fileadmin/Notebooks/News/_nc3/p
 
 
 export const ProductDetails = () => {
-  const { product } = useParams();
+  const { productRef } = useParams();
   const { register, handleSubmit } = useForm();
   const rating = 5;
 
   const onSubmit = (d) => console.log(d);
-
 
   return (
     <div className="product-details">

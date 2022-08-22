@@ -29,7 +29,7 @@ export default function ImgMediaCard({
   const navigate = useNavigate();
 
   const params = spacesToUnderscore(ref);
-  console.log(params)
+
   const handleClick = () => navigate(`/${params}`);
 
   return (

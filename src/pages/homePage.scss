@@ -1,3 +1,50 @@
-h2, h6 {
+/* h2, h6 {
     background: linear-gradient(to right, rgba(49,71,85, 0.6), rgba(38, 218, 197, 0.729));
+} */
+
+
+#wrapper{
+ margin:50px auto;
+ display: flex;
+ justify-content: center;
+}
+
+svg > h4{
+  text-align: center; 
+  font-family: monospace;
+  cursor: pointer;
+  color:#000;
+  position:fixed;
+  bottom:5px;
+  right:5px;
+  z-index:-1;
+}
+
+ svg{
+  cursor: pointer !important;
+   margin:px auto;
+
+}
+
+.Banner2{
+  display:none;
+}
+
+.Mega, .ShopNowEx2,.SalesEx2 {/* ex 2 texts  */
+ display:none;
+}
+
+.BannerBorderLineEx2, .BannerBorderEx2{
+   display:none;
+}
+
+.BannerHolderEx2{
+ display:none;
+}
+
+.BorderAnimationEx2 {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  animation:BannerBorder 50s linear alternate infinite;
+  animation-delay: 0s;
 }
